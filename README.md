@@ -108,3 +108,9 @@ npm run lint
 ```
 
 
+## References
+
+EnumExtensions , IdentitySetting extension , ApiResponse ,Exceptions and Jwt structure
+
+are inspired by this repository
+https://github.com/dotnetzoom/AspNetCore-WebApi-Course
