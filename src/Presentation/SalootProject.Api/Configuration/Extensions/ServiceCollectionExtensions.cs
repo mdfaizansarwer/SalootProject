@@ -3,6 +3,7 @@ using Core.Exceptions;
 using Core.Setting;
 using Data.DataInitializer;
 using Data.DataProviders;
+using Data.DbObjects;
 using Data.Entities;
 using Data.Extensions;
 using Date;
@@ -160,11 +161,13 @@ namespace SalootProject.Api.Configuration
         public static void AddApplicationDependencyRegistration(this IServiceCollection services, ApplicationSettings applicationSettings)
         {
             // Data Services
-            AddDataProvidersDependencyRegistration(services, applicationSettings);
+            AddDataProvidersDependencyRegistration(services);
+            AddDbObjectsDependencyRegistration(services, applicationSettings);
 
             // Domain Services
             services.AddScoped(typeof(JwtService));
             services.AddScoped(typeof(IAuthService), typeof(AuthService));
+
             if (applicationSettings.DatabaseSetting.StoreFilesOnDatabase)
             {
                 services.AddScoped(typeof(IFileService), typeof(FileOnDatabaseService));
@@ -182,20 +185,27 @@ namespace SalootProject.Api.Configuration
             services.AddScoped(typeof(TeamService));
         }
 
-        private static void AddDataProvidersDependencyRegistration(IServiceCollection services, ApplicationSettings applicationSettings)
+        private static void AddDataProvidersDependencyRegistration(IServiceCollection services)
         {
             services.AddScoped(typeof(IDataProvider<>), typeof(DataProvider<>));
+            services.AddScoped(typeof(ITeamDataProvider), typeof(TeamDataProvider));
+            services.AddScoped(typeof(ITenantDataProvider), typeof(TenantDataProvider));
+
             services.AddScoped(typeof(DataInitializer));
+        }
+
+        private static void AddDbObjectsDependencyRegistration(IServiceCollection services, ApplicationSettings applicationSettings)
+        {
             if (applicationSettings.DatabaseSetting.DatabaseProvider == DatabaseProvider.Postgres)
             {
-                services.AddScoped(typeof(ITeamDataProvider), typeof(TeamDataProviderPostgres));
-                services.AddScoped(typeof(ITenantDataProvider), typeof(TenantDataProviderPostgres));
+                services.AddScoped(typeof(ITeamDbObject), typeof(TeamDbObjectPostgres));
+                services.AddScoped(typeof(ITenantDbObject), typeof(TenantDbObjectPostgres));
             }
 
             if (applicationSettings.DatabaseSetting.DatabaseProvider == DatabaseProvider.SqlServer)
             {
-                services.AddScoped(typeof(ITeamDataProvider), typeof(TeamDataProviderSqlServer));
-                services.AddScoped(typeof(ITenantDataProvider), typeof(TenantDataProviderSqlServer));
+                services.AddScoped(typeof(ITeamDbObject), typeof(TeamDbObjectSqlServer));
+                services.AddScoped(typeof(ITenantDbObject), typeof(TenantDbObjectSqlServer));
             }
         }
     }
