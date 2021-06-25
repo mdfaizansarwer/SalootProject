@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataProviders\TeamDataProvider\**" />
+    <Compile Remove="DataProviders\TenantDataProvider\**" />
+    <EmbeddedResource Remove="DataProviders\TeamDataProvider\**" />
+    <EmbeddedResource Remove="DataProviders\TenantDataProvider\**" />
+    <None Remove="DataProviders\TeamDataProvider\**" />
+    <None Remove="DataProviders\TenantDataProvider\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.6" />
@@ -24,11 +33,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Presentation\SalootProject.Api\SalootProject.Api.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataProviders\TenantDataProvider\" />
-    <Folder Include="DataProviders\TeamDataProvider\" />
   </ItemGroup>
 
 </Project>
