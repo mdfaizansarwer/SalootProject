@@ -9,6 +9,18 @@ This project is a template for creating a Single Page App (SPA) with Vue TypeScr
 ## Give a Star! :star:
 If you liked the repo or if it helped you, a star would be appreciated.
 
+## Features
+* Multi Tenancy
+* Multi Database providers (PostgreSql , SqlServer)
+* File uploading on file system or database
+* Global Exception Handling
+* Logging :
+    1. All api actions are logged.
+    2. All exceptions are logged.
+* JWT Authentication
+* .Net Core Identity
+* Email Service
+
 ## Technologies
 
 Backend :
