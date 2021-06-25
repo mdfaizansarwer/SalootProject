@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.DbObjects
 {
-    public class TenantDbObjectPostgres
+    public class TenantDbObjectPostgres : ITenantDbObject
     {
         #region Fields
 
