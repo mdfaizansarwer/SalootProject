@@ -23,6 +23,8 @@ If you liked the repo or if it helped you, a star would be appreciated.
 
 ## Technologies
 
+![develop-asp-dot-net-core-and-framework-mvc-web-api](https://user-images.githubusercontent.com/39926422/124902258-02652a80-dff8-11eb-9f45-e3c10d77a17f.png)
+
 Backend :
 
 * [ASP.NET Core 5](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-5.0)
@@ -34,6 +36,8 @@ Backend :
 * [SqlServer](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
 * [PostgreSQL](https://www.postgresql.org/)
 * [XUnit](https://xunit.net/), [FluentAssertions](https://fluentassertions.com/), [Moq](https://github.com/moq)
+
+![vuejs_original_wordmark_logo_icon_146305](https://user-images.githubusercontent.com/39926422/124902999-c088b400-dff8-11eb-982f-0d8a95f8ccf1.png)
 
 Frontend :
 
